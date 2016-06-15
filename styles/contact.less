@@ -1,24 +1,30 @@
 .contact {
+  font-size: 1.6rem;
+
+  & > * {
+    margin-bottom: @padding;
+  }
+
   .address {
     font-size: 1.8rem;
     line-height: 2.0;
-    padding-bottom: @padding;
     text-align: center;
   }
 
   .item {
-    font-size: 1.4rem;
     padding: @padding;
     text-align: center;
   }
 
   .label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
     text-transform: uppercase;
   }
 
   .map {
     border-radius: @padding;
-    margin-bottom: @padding;
+    pointer-events: none;
   }
 
   .other {
