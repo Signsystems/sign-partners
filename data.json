@@ -1,5 +1,6 @@
 {
-  "images": {
-    "about": "https://cloud.githubusercontent.com/assets/888052/16079056/0992498a-32d0-11e6-9c72-1ede7a2e157a.jpg"
+  "heroes": {
+    "about": "https://cloud.githubusercontent.com/assets/888052/16079056/0992498a-32d0-11e6-9c72-1ede7a2e157a.jpg",
+    "contact": "https://cloud.githubusercontent.com/assets/888052/16096667/016c10b8-3318-11e6-88c5-8237eb7e659c.jpg"
   }
 }
