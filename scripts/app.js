@@ -1,0 +1,1 @@
+const mithril = require('mithril');

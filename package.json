@@ -6,20 +6,35 @@
   "license": "UNLICENSED",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:scripts && npm run build:styles && npm run build:templates",
+    "build:scripts": "browserify scripts/app.js > dist/assets/app.js",
+    "build:styles": "lessc styles/app.less | postcss -u autoprefixer | cleancss --s0 > dist/assets/app.css",
+    "build:templates": "pug -o dist templates",
+    "clean": "rm -rf dist/*",
+    "postbuild": "ccjs dist/assets/app.js --warning_level=QUIET > dist/assets/app-min.js",
+    "prebuild": "npm run clean && mkdir -p dist/assets",
+    "prewatch": "npm run clean && mkdir -p dist/assets",
+    "prewatch:styles": "npm run build:styles",
+    "serve": "browser-sync start -s dist -f dist --port 4000 --no-open --no-notify --extensions html",
+    "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:styles' 'npm run watch:templates'",
+    "watch:scripts": "watchify scripts/app.js -d -v -o dist/assets/app.js",
+    "watch:styles": "eye --*glob=styles/**/*.less npm run build:styles",
+    "watch:templates": "pug -o dist -w templates"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "browserify": "^13.0.1",
     "clean-css": "^3.4.17",
     "closurecompiler": "^1.5.3",
+    "font-awesome": "^4.6.3",
     "less": "^2.7.1",
     "mithril": "^0.2.5",
     "normalize.css": "^4.1.1",
     "postcss-cli": "^2.5.2",
-    "pug": "^2.0.0-beta3"
+    "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
+    "browser-sync": "^2.13.0",
     "eye": "0.0.3",
     "parallelshell": "^2.0.0",
     "watchify": "^3.7.0"

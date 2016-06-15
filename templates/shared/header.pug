@@ -1,0 +1,7 @@
+mixin header(page)
+  nav.header
+    a.brand(href='/') Sign Partners, Inc.
+    a.page(href='/about.html' class=(page == 'about' ? 'active' : '')) About
+    a.page(href='/signs.html' class=(page == 'signs' ? 'active' : '')) Signs
+    a.page(href='/services.html' class=(page == 'services' ? 'active' : '')) Services
+    a.page(href='/contact.html' class=(page == 'contact' ? 'active' : '')) Contact
