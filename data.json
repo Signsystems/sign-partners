@@ -1,6 +1,11 @@
 {
-  "heroes": {
-    "about": "https://cloud.githubusercontent.com/assets/888052/16079056/0992498a-32d0-11e6-9c72-1ede7a2e157a.jpg",
-    "contact": "https://cloud.githubusercontent.com/assets/888052/16096667/016c10b8-3318-11e6-88c5-8237eb7e659c.jpg"
+  "about": {
+    "hero": "https://cloud.githubusercontent.com/assets/888052/16097316/3ddf17c2-331b-11e6-8996-3a2e316f3ec0.jpg"
+  },
+  "contact": {
+    "hero": "https://cloud.githubusercontent.com/assets/888052/16097295/23e15d30-331b-11e6-9465-f7fcd899155c.jpg"
+  },
+  "services": {
+    "hero": "https://cloud.githubusercontent.com/assets/888052/16097269/ffc8f7aa-331a-11e6-9246-b79d45a30433.jpg"
   }
 }
