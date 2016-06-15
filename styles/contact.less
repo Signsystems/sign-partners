@@ -1,8 +1,13 @@
 .contact {
   font-size: 1.6rem;
+  line-height: 0;
 
   & > * {
     margin-bottom: @padding;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .address {
@@ -12,7 +17,7 @@
   }
 
   .item {
-    opacity: 0.875;
+    line-height: initial;
     padding: @padding;
     text-align: center;
   }
@@ -29,7 +34,8 @@
 
   .other {
     background: @blue;
-    color: white;
+    color: @faded-white;
     font-weight: 300;
+    justify-content: center;
   }
 }

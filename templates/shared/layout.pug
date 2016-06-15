@@ -1,12 +1,15 @@
-include ../shared/header.pug
+include ./header.pug
 
 doctype html
 html(lang='en')
   head
     title Sign Partners, Inc. - #1 Sign Company in Atlanta
+    meta(charset='utf-8')
+    meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport')
+
     link(href='//fonts.googleapis.com/css?family=Raleway:300,400|Open+Sans:300,400' rel='stylesheet')
     link(rel='stylesheet' type='text/css' href='/assets/app.css')
     script(type='text/javascript' src='/assets/app.js' defer)
   body
     block content
-    include ../shared/footer.pug
+    include ./footer.pug
