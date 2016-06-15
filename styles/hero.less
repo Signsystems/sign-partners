@@ -1,0 +1,31 @@
+.hero {
+  background-position: center;
+  background-size: cover;
+  height: 28.0rem;
+  position: relative;
+
+  @media (max-width: @small-max) {
+    height: 20.0rem;
+  }
+
+  .darken {
+    .position(absolute; 0; 0; 0; 0);
+    background: #000;
+    opacity: 0.5;
+  }
+
+  .title {
+    .position(absolute; 0; 0; 0; 0);
+    color: @faded-white;
+    font-size: 6.0rem;
+    font-weight: 400;
+    padding: 11.0rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 10;
+
+    @media (max-width: @small-max) {
+      padding: 7.0rem 0;
+    }
+  }
+}
