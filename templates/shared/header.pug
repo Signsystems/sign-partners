@@ -1,7 +1,11 @@
 mixin header(page)
   nav.header
     h1.brand
-      a(href='/') Sign Partners, Inc.
+      a(href='/').row
+        include ./logo.svg
+        .column
+          .sign Sign
+          .partners Partners
     a.page(href='/about.html' class={ active: page == 'about' }) About
     a.page(href='/signs.html' class={ active: page == 'signs' }) Signs
     a.page(href='/services.html' class={ active: page == 'services' }) Services

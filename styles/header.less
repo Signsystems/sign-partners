@@ -8,9 +8,34 @@
   .brand {
     flex-grow: 2;
     flex-shrink: 0;
-    font-size: 3.0rem;
     font-weight: 300;
-    padding: 1.5rem;
+    text-transform: uppercase;
+
+    @media (max-width: @small-max) {
+      flex-grow: 0;
+      margin: 0 auto;
+    }
+  }
+
+  .logo {
+    height: 6.0rem;
+    padding: 0 @padding/2;
+
+    .path {
+      fill: @gray-30;
+      fill-rule: evenodd;
+    }
+  }
+
+  .sign {
+    font-size: 2.6rem;
+    padding: 0 0 0.3rem;
+  }
+
+  .partners {
+    border-top: 0.1rem solid @gray-30;
+    font-size: 2.6rem;
+    padding: 0.4rem 0 0;
   }
 
   .page {
