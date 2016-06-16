@@ -1,0 +1,44 @@
+.signs {
+  .aspect {
+    padding-top: 75%;
+  }
+
+  .card {
+    background: @gray-90;
+    margin-bottom: @padding;
+    width: 32%;
+
+    @media (max-width: @md-max) {
+      width: 48%;
+    }
+
+    @media (max-width: @sm-max) {
+      width: 100%;
+    }
+  }
+
+  .cards {
+    justify-content: space-between;
+    margin: @padding auto 0;
+    padding: 0 @padding;
+  }
+
+  .categories {
+    background: @blue;
+    color: @faded-white;
+    justify-content: center;
+    padding: 1.2rem;
+  }
+
+  .category {
+    border-radius: 1.2rem;
+    cursor: pointer;
+    margin: 0.2rem 0.6rem;
+    padding: 0.3rem 1.2rem;
+
+    &.active, &:hover {
+      background: @faded-white;
+      color: @blue;
+    }
+  }
+}
