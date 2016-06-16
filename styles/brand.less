@@ -1,33 +1,35 @@
 .brand(@color: @gray-30) {
-  color: @color;
-  flex-grow: 2;
-  flex-shrink: 0;
-  font-weight: 300;
-  text-transform: uppercase;
+  .brand {
+    color: @color;
+    flex-grow: 2;
+    flex-shrink: 0;
+    font-weight: 300;
+    text-transform: uppercase;
 
-  @media (max-width: @small-max) {
-    flex-grow: 0;
-    margin: 0 auto;
-  }
-
-  .logo {
-    height: 6.0rem;
-    padding-right: @padding/2;
-
-    .path {
-      fill: @color;
-      fill-rule: evenodd;
+    @media (max-width: @small-max) {
+      flex-grow: 0;
+      margin: 0 auto;
     }
-  }
 
-  .sign {
-    font-size: 2.6rem;
-    padding: 0 0 0.3rem;
-  }
+    .logo {
+      height: 6.0rem;
+      padding-right: @padding/2;
 
-  .partners {
-    border-top: 0.1rem solid @color;
-    font-size: 2.6rem;
-    padding: 0.4rem 0 0;
+      .path {
+        fill: @color;
+        fill-rule: evenodd;
+      }
+    }
+
+    .sign {
+      font-size: 2.6rem;
+      padding: 0 0 0.3rem;
+    }
+
+    .partners {
+      border-top: 0.1rem solid @color;
+      font-size: 2.6rem;
+      padding: 0.4rem 0 0;
+    }
   }
 }
