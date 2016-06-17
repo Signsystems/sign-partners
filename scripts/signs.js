@@ -1,4 +1,6 @@
+const classnames = require('classnames');
 const Emitter = require('eventemitter3');
+const filter  = require('lodash/filter');
 const m = require('mithril');
 
 const Card       = require('./card');
@@ -22,8 +24,16 @@ var sizes = [
 
 exports.controller = function(args, extras) {
   var ctrl = {
+    category: m.prop('all'),
     events: new Emitter,
     pages:  1,
+
+    cards() {
+      var category = ctrl.category();
+      return category === 'all'
+        ? signs.cards
+        : filter(signs.cards, { category });
+    },
 
     more() {
       ctrl.pages++;
@@ -39,17 +49,19 @@ exports.view = function(ctrl, args, extras) {
 
   return [
     m('nav.categories.row', [
-      m('.category.active', 'All'),
       signs.categories.map(name =>
-        m('.category', name)
+        m('.category', {
+          className: classnames({ active: ctrl.category() === name }),
+          onclick: ctrl.category.bind(null, name)
+        }, name)
       )
     ]),
 
-    m('.cards.row', signs.cards.slice(0, total).map(card =>
-      m(Card, { card, events })
+    m('.cards.row', ctrl.cards().slice(0, total).map((card, key) =>
+      m(Card, { card, events, key })
     )),
 
-    total < signs.cards.length
+    total < ctrl.cards().length
       ? m('button.more', { onclick: ctrl.more }, 'Show more')
       : null,
 

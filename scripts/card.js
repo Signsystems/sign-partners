@@ -18,10 +18,11 @@ exports.controller = function({ card, events }) {
   return ctrl;
 };
 
-exports.view = function(ctrl, { card }, extras) {
+exports.view = function(ctrl, { card, key }, extras) {
   return m('.card', {
     className: classnames({ show: ctrl.shown() }),
     config: function(elem, isInit) { isInit || setTimeout(ctrl.show, 1) },
+    key,
     onclick: ctrl.fullscreen,
     style: `background-image: url(${card.image});`
   }, [

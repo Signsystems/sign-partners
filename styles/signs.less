@@ -40,10 +40,10 @@
     margin-bottom: @padding;
     opacity: 0;
     position: relative;
-    width: 32%;
+    width: 31%;
 
     @media (max-width: @md-max) {
-      width: 48%;
+      width: 47%;
     }
 
     @media (max-width: @sm-max) {
@@ -62,7 +62,7 @@
   }
 
   .cards {
-    justify-content: space-between;
+    justify-content: space-around;
     margin: @padding auto 0;
     padding: 0 @padding;
   }
@@ -80,6 +80,7 @@
     cursor: pointer;
     margin: 0.2rem 0.6rem;
     padding: 0.3rem 1.2rem;
+    text-transform: capitalize;
 
     &.active, &:hover {
       background: @faded-white;
