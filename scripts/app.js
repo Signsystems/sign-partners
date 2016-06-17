@@ -1,6 +1,6 @@
 const m = require('mithril');
 
-const Signs = require('./components/signs');
+const Signs = require('./signs');
 
 var root = document.getElementsByClassName('signs')[0];
 

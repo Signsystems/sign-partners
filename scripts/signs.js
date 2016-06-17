@@ -1,6 +1,7 @@
 const m = require('mithril');
 
-const { signs } = require('../../data');
+const fullscreen = require('./fullscreen');
+const { signs }  = require('../data');
 
 exports.view = function(ctrl, args, extras) {
   return [
@@ -12,7 +13,7 @@ exports.view = function(ctrl, args, extras) {
     ]),
 
     m('.cards.row', signs.cards.map(card =>
-      m('.card', [
+      m('.card', { onclick: fullscreen }, [
         m('.aspect'),
         m('.details', [
           m('h2.name', card.name),
