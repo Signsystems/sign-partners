@@ -1,5 +1,6 @@
-const Emitter = require('eventemitter3');
-const m       = require('mithril');
+const debounce = require('lodash/debounce');
+const Emitter  = require('eventemitter3');
+const m        = require('mithril');
 
 const Signs      = require('./signs');
 const Fullscreen = require('./fullscreen');
@@ -11,4 +12,4 @@ var events     = new Emitter,
 if (fullscreen) m.mount(fullscreen, m(Fullscreen, { events }));
 if (signs) m.mount(signs, m(Signs, { events }));
 
-window.addEventListener('resize', m.redraw);
+window.addEventListener('resize', debounce(m.redraw, 100));
