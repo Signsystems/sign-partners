@@ -1,7 +1,9 @@
+const Emitter = require('eventemitter3');
 const m = require('mithril');
 
-const Card = require('./card');
-const { signs } = require('../data');
+const Card       = require('./card');
+const Fullscreen = require('./fullscreen');
+const { signs }  = require('../data');
 
 var sizes = [
   {
@@ -20,14 +22,16 @@ var sizes = [
 
 exports.controller = function(args, extras) {
   var ctrl = {
-    pages: m.prop(1)
+    events: new Emitter,
+    pages:  1
   };
 
   return ctrl;
 };
 
-exports.view = function(ctrl, { events }, extras) {
-  var total = ctrl.pages() * pageSize();
+exports.view = function(ctrl, args, extras) {
+  var { events } = ctrl,
+      total = ctrl.pages * pageSize();
 
   return [
     m('nav.categories.row', [
@@ -39,7 +43,9 @@ exports.view = function(ctrl, { events }, extras) {
 
     m('.cards.row', signs.cards.slice(0, total).map(card =>
       m(Card, { card, events })
-    ))
+    )),
+
+    m(Fullscreen, { events })
   ];
 };
 

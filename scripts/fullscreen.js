@@ -18,9 +18,11 @@ exports.controller = function({ events }, extras) {
 };
 
 exports.view = function(ctrl, args, extras) {
-  return m('.image', {
-    className: classnames({ show: ctrl.show() }),
-    onclick: ctrl.show.bind(null, false),
-    style: `background-image: url(${ctrl.image()});`
-  });
+  return m('.fullscreen', [
+    m('.image', {
+      className: classnames({ show: ctrl.show() }),
+      onclick: ctrl.show.bind(null, false),
+      style: `background-image: url(${ctrl.image()});`
+    })
+  ]);
 };

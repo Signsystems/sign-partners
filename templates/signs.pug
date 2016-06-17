@@ -8,6 +8,7 @@ block content
       .category.active All
       each name in signs.categories
         .category= name
+
     .cards.row
       each card in signs.cards
         .card
@@ -17,5 +18,5 @@ block content
             .description= card.description
           i.fa.zoom
 
-  .fullscreen
-    .image(style=`background-image: url(${home.hero});`)
+    .fullscreen
+      .image(style=`background-image: url(${home.hero});`)
