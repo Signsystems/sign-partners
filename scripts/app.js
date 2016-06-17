@@ -10,3 +10,5 @@ var events     = new Emitter,
 
 if (fullscreen) m.mount(fullscreen, m(Fullscreen, { events }));
 if (signs) m.mount(signs, m(Signs, { events }));
+
+window.addEventListener('resize', m.redraw);
