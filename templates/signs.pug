@@ -10,13 +10,15 @@ block content
         .category= name
 
     .cards.row
-      each card in signs.cards
-        .card
+      each card in signs.cards.slice(0, 12)
+        .card(style=`background-image: url(${card.image});`)
           .aspect
           .details
             h2.name= card.name
             .description= card.description
           i.fa.zoom
+
+    button.more Show more
 
     .fullscreen
       .image(style=`background-image: url(${home.hero});`)

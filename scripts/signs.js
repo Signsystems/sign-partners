@@ -23,7 +23,11 @@ var sizes = [
 exports.controller = function(args, extras) {
   var ctrl = {
     events: new Emitter,
-    pages:  1
+    pages:  1,
+
+    more() {
+      ctrl.pages++;
+    }
   };
 
   return ctrl;
@@ -44,6 +48,10 @@ exports.view = function(ctrl, args, extras) {
     m('.cards.row', signs.cards.slice(0, total).map(card =>
       m(Card, { card, events })
     )),
+
+    total < signs.cards.length
+      ? m('button.more', { onclick: ctrl.more }, 'Show more')
+      : null,
 
     m(Fullscreen, { events })
   ];
