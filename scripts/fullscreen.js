@@ -1,38 +1,26 @@
-var cancel = {
-  moz:    'mozCancelFullScreen',
-  ms:     'msExitFullscreen',
-  spec:   'cancelFullScreen',
-  webkit: 'webkitCancelFullScreen'
-};
+const classnames = require('classnames');
+const m = require('mithril');
 
-var current = {
-  moz:    'mozFullScreenElement',
-  ms:     'msFullscreenElement',
-  spec:   'fullScreenElement',
-  webkit: 'webkitFullscreenElement'
-};
+exports.controller = function({ events }, extras) {
+  var ctrl = {
+    image: m.prop(''),
+    show:  m.prop(false)
+  };
 
-var request = {
-  moz:    'mozRequestFullScreen',
-  ms:     'msRequestFullscreen',
-  spec:   'requestFullscreen',
-  webkit: 'webkitRequestFullscreen'
-};
+  events.on('fullscreen', update);
 
-var prefix = (function() {
-  switch (false) {
-    case !document.body.requestFullscreen:       return 'spec';
-    case !document.body.msRequestFullscreen:     return 'ms';
-    case !document.body.mozRequestFullScreen:    return 'moz';
-    case !document.body.webkitRequestFullscreen: return 'webkit';
+  function update(image) {
+    ctrl.image(image);
+    ctrl.show(true)
   }
-})();
 
-module.exports = function(event) {
-  if (!prefix) return;
-  if (document[current[prefix]]) {
-    document[cancel[prefix]]();
-  } else {
-    event.currentTarget[request[prefix]]();
-  }
-}
+  return ctrl;
+};
+
+exports.view = function(ctrl, args, extras) {
+  return m('.image', {
+    className: classnames({ show: ctrl.show() }),
+    onclick: ctrl.show.bind(null, false),
+    style: `background-image: url(${ctrl.image()});`
+  });
+};

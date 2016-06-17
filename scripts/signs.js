@@ -1,9 +1,9 @@
 const m = require('mithril');
 
-const fullscreen = require('./fullscreen');
-const { signs }  = require('../data');
+const Card = require('./card');
+const { signs } = require('../data');
 
-exports.view = function(ctrl, args, extras) {
+exports.view = function(ctrl, { events }, extras) {
   return [
     m('nav.categories.row', [
       m('.category.active', 'All'),
@@ -13,14 +13,7 @@ exports.view = function(ctrl, args, extras) {
     ]),
 
     m('.cards.row', signs.cards.map(card =>
-      m('.card', { onclick: fullscreen }, [
-        m('.aspect'),
-        m('.details', [
-          m('h2.name', card.name),
-          m('.description', card.description)
-        ]),
-        m('i.fa.zoom')
-      ])
+      m(Card, { card, events })
     ))
   ];
 }
