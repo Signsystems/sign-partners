@@ -5,9 +5,9 @@
     opacity: 0;
     padding-top: 75%;
 
-    &:hover {
-      opacity: 0.5;
-    }
+    // &:hover {
+    //   opacity: 0.5;
+    // }
   }
 
   .card {
@@ -23,6 +23,12 @@
 
     @media (max-width: @sm-max) {
       width: 100%;
+    }
+
+    &:hover {
+      .aspect  { opacity: 0.5 }
+      .details { opacity: 1.0 }
+      .zoom    { opacity: 1.0 }
     }
   }
 
@@ -49,6 +55,40 @@
     &.active, &:hover {
       background: @faded-white;
       color: @blue;
+    }
+  }
+
+  .description {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 0.4rem;
+  }
+
+  .details {
+    .position(absolute; 50%);
+    .transition();
+    color: @faded-white;
+    height: 0;
+    opacity: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .name {
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-top: -2.4rem;
+  }
+
+  .zoom {
+    .position(absolute; auto; 0.8rem; 0.8rem; auto);
+    .transition();
+    color: @faded-white;
+    font-size: 2.2rem;
+    opacity: 0;
+
+    &:before {
+      content: @fa-var-search-plus;
     }
   }
 }
