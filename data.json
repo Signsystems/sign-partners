@@ -5,7 +5,55 @@
   "contact": {
     "hero": "https://cloud.githubusercontent.com/assets/888052/16097295/23e15d30-331b-11e6-9465-f7fcd899155c.jpg"
   },
+  "home": {
+    "hero": "https://cloud.githubusercontent.com/assets/888052/16118906/1bcee8b0-33a7-11e6-8afe-37da36e71216.jpg"
+  },
   "services": {
     "hero": "https://cloud.githubusercontent.com/assets/888052/16097269/ffc8f7aa-331a-11e6-9246-b79d45a30433.jpg"
+  },
+  "signs": {
+    "categories": [
+      "Commercial",
+      "Medical",
+      "Residential",
+      "Real-estate"
+    ],
+    "cards": [{
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }, {
+      "name": "XYZ Widgets",
+      "description": "Sandblasted monument sign",
+      "image": null
+    }]
   }
 }

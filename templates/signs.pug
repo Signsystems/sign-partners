@@ -6,26 +6,9 @@ block content
   .signs
     nav.categories.row
       .category.active All
-      .category Commercial
-      .category Edge-lit glass
-      .category Residential
-      .category Real-estate
+      each name in signs.categories
+        .category= name
     .cards.row
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
-      .card
-        .aspect
+      each card in signs.cards
+        .card
+          .aspect
