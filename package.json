@@ -9,7 +9,7 @@
     "build": "npm run build:scripts && npm run build:styles && npm run build:templates",
     "build:scripts": "browserify scripts/app.js > dist/assets/app.js",
     "build:styles": "lessc styles/app.less | postcss -u autoprefixer | cleancss --s0 > dist/assets/app.css",
-    "build:templates": "pug -O data.json -o dist templates",
+    "build:templates": "pug -O data.json -o dist templates/*.pug",
     "clean": "rm -rf dist/*",
     "postbuild": "ccjs dist/assets/app.js --warning_level=QUIET > dist/assets/app-min.js",
     "prebuild": "npm run clean && mkdir -p dist/assets",
@@ -19,7 +19,7 @@
     "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:styles' 'npm run watch:templates'",
     "watch:scripts": "watchify scripts/app.js -d -v -o dist/assets/app.js",
     "watch:styles": "eye --*glob=styles/**/*.less npm run build:styles",
-    "watch:templates": "pug -O ./data.json -o dist -w templates"
+    "watch:templates": "pug -O ./data.json -o dist -w templates/*.pug"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",
