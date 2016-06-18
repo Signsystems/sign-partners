@@ -1,6 +1,8 @@
 include ./header.pug
 include ./hero.pug
 
+- script = process.env.NODE_ENV === 'production' ? 'app-min.js' : 'app.js'
+
 doctype html
 html(lang='en')
   head
@@ -10,7 +12,7 @@ html(lang='en')
 
     link(href='//fonts.googleapis.com/css?family=Raleway:300,400|Open+Sans:300,400' rel='stylesheet')
     link(rel='stylesheet' type='text/css' href='/assets/app.css')
-    script(type='text/javascript' src='/assets/app.js' defer)
+    script(type='text/javascript' src=`/assets/${script}` defer)
   body
     block content
     include ./footer.pug

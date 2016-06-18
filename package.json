@@ -9,7 +9,7 @@
     "build": "npm run build:scripts && npm run build:styles && npm run build:templates",
     "build:scripts": "browserify scripts/app.js > dist/assets/app.js",
     "build:styles": "lessc styles/app.less | postcss -u autoprefixer | cleancss --s0 > dist/assets/app.css",
-    "build:templates": "pug -O data.json -o dist templates/*.pug",
+    "build:templates": "NODE_ENV=production pug -O data.json -o dist templates/*.pug",
     "clean": "rm -rf dist/*",
     "postbuild": "ccjs dist/assets/app.js --warning_level=QUIET > dist/assets/app-min.js",
     "prebuild": "npm run clean && mkdir -p dist/assets",

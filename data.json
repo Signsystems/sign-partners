@@ -11,6 +11,7 @@
   "services": {
     "hero": "https://cloud.githubusercontent.com/assets/888052/16097269/ffc8f7aa-331a-11e6-9246-b79d45a30433.jpg"
   },
+  "script": "app.js",
   "signs": {
     "categories": [
       "all",
