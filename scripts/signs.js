@@ -1,9 +1,13 @@
 const classnames = require('classnames');
-const Emitter = require('eventemitter3');
-const filter  = require('lodash/filter');
-const m = require('mithril');
+const Emitter    = require('eventemitter3');
+const filter     = require('lodash/filter');
+const invokeMap  = require('lodash/invokeMap');
+const m          = require('mithril');
+const Promise    = require('promise');
+const reject     = require('lodash/filter');
 
 const Card       = require('./card');
+const Model      = require('./model');
 const Fullscreen = require('./fullscreen');
 const { signs }  = require('../data');
 
@@ -22,17 +26,27 @@ var sizes = [
   }
 ];
 
+var cards = signs.cards.map(Model);
+
 exports.controller = function(args, extras) {
+  var current = 'all';
+
   var ctrl = {
-    category: m.prop('all'),
     events: new Emitter,
     pages:  1,
 
     cards() {
       var category = ctrl.category();
-      return category === 'all'
-        ? signs.cards
-        : filter(signs.cards, { category });
+      return category === 'all' ? cards : filter(cards, { category });
+    },
+
+    category(name) {
+      if (!arguments.length) return current;
+      current = name;
+      if (current === 'all') return;
+      m.startComputation();
+      var exiting = reject(cards, { category: current });
+      Promise.all(invokeMap(exiting, 'emit', 'exit')).then(m.endComputation);
     },
 
     more() {

@@ -34,6 +34,7 @@
     "mithril": "^0.2.5",
     "normalize.css": "^4.1.1",
     "postcss-cli": "^2.5.2",
+    "promise": "^7.1.1",
     "pug-cli": "^1.0.0-alpha6"
   },
   "devDependencies": {
