@@ -39,7 +39,16 @@
     margin-bottom: @padding;
     position: relative;
 
-    @media (min-width: @lg-min) {
+    @media (min-width: @xl-min) {
+      margin-right: 2%;
+      width: 23.5%;
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+
+    @media (min-width: @lg-min) and (max-width: @lg-max) {
       margin-right: 2%;
       width: 32%;
 
@@ -48,7 +57,7 @@
       }
     }
 
-    @media (max-width: @md-max) {
+    @media (min-width: @md-min) and (max-width: @md-max) {
       margin-right: 4%;
       width: 48%;
 
