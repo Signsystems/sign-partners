@@ -1,28 +1,20 @@
-const classnames = require('classnames');
-const m = require('mithril');
+const always = require('ramda/src/always')
+const classnames = require('classnames')
+const m = require('mithril')
 
-exports.controller = function({ events }, extras) {
-  var ctrl = {
-    image: m.prop(''),
-    show:  m.prop(false)
-  };
+exports.oninit = function({ attrs, state }) {
+  state.show = attrs.fullscreen.map(always(true))
+  state.show(false)
+}
 
-  events.on('fullscreen', update);
+exports.view = function({ attrs, state }) {
+  const { show } = state
 
-  function update(image) {
-    ctrl.image(image);
-    ctrl.show(true)
-  }
-
-  return ctrl;
-};
-
-exports.view = function(ctrl, args, extras) {
   return m('.fullscreen', [
     m('.image', {
-      className: classnames({ show: ctrl.show() }),
-      onclick: ctrl.show.bind(null, false),
-      style: `background-image: url(${ctrl.image()});`
+      className: classnames({ show: show() }),
+      onclick: show.bind(null, false),
+      style: `background-image: url(${ attrs.fullscreen().image })`
     })
-  ]);
-};
+  ])
+}

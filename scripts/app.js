@@ -1,11 +1,8 @@
-const debounce = require('lodash/debounce');
-const m = require('mithril');
+const m = require('mithril')
 
-const Signs = require('./signs');
+const Signs = require('./signs')
 
-var signs = document.getElementsByClassName('signs')[0];
+const root = document.body.querySelector('.signs')
 
-if (signs) {
-  m.mount(signs, Signs);
-  window.addEventListener('resize', debounce(m.redraw, 10));
-}
+m.mount(root, Signs)
+window.addEventListener('resize', m.redraw)

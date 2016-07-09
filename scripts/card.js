@@ -1,16 +1,10 @@
 const m = require('mithril');
 
-exports.controller = function({ card, events }) {
-  return {
-    fullscreen() {
-      events.emit('fullscreen', card.image);
-    }
-  };
-};
+exports.view = function({ attrs }) {
+  const { card, fullscreen } = attrs
 
-exports.view = function(ctrl, { card }, extras) {
   return m('.card', {
-    onclick: ctrl.fullscreen,
+    onclick: fullscreen.bind(null, card),
     style: `background-image: url(${card.image});`
   }, [
     m('.aspect'),
@@ -19,5 +13,5 @@ exports.view = function(ctrl, { card }, extras) {
       m('.description', card.description)
     ]),
     m('i.fa.zoom')
-  ]);
-};
+  ])
+}

@@ -1,75 +1,53 @@
-const classnames = require('classnames');
-const Emitter = require('eventemitter3');
-const filter  = require('lodash/filter');
-const m = require('mithril');
+const classnames = require('classnames')
+const compose    = require('ramda/src/compose')
+const filter     = require('ramda/src/filter')
+const identity   = require('ramda/src/identity')
+const m          = require('mithril')
+const propEq     = require('ramda/src/propEq')
+const take       = require('ramda/src/take')
 
-const Card       = require('./card');
-const Fullscreen = require('./fullscreen');
-const { signs }  = require('../data');
+const Card = require('./card')
+const Fullscreen = require('./fullscreen')
+const { cards, categories, sizes } = require('../data').signs
 
-var sizes = [
-  {
-    width: 769,
-    size: 12
-  },
-  {
-    width: 481,
-    size: 8,
-  },
-  {
-    width: 0,
-    size: 6
+var categorize = compose(filter, propEq('category'))
+
+function size(width) {
+  return sizes.find(config => config.width <= width).size
+}
+
+exports.oninit = function(vnode) {
+  vnode.state = {
+    category:   m.prop(categories[0]),
+    fullscreen: m.prop(cards[0]),
+    pages:      m.prop(1)
   }
-];
+}
 
-exports.controller = function(args, extras) {
-  var ctrl = {
-    category: m.prop('all'),
-    events: new Emitter,
-    pages:  1,
+exports.view = function(vnode) {
+  const { category, fullscreen, pages } = vnode.state,
+        total = pages() * size(document.body.clientWidth)
 
-    cards() {
-      var category = ctrl.category();
-      return category === 'all'
-        ? signs.cards
-        : filter(signs.cards, { category });
-    },
-
-    more() {
-      ctrl.pages++;
-    }
-  };
-
-  return ctrl;
-};
-
-exports.view = function(ctrl, args, extras) {
-  var { events } = ctrl,
-      total = ctrl.pages * pageSize();
+  const select = category() === 'all' ? identity : categorize(category())
 
   return [
     m('nav.categories.row', [
-      signs.categories.map(name =>
+      categories.map(name =>
         m('.category', {
-          className: classnames({ active: ctrl.category() === name }),
-          onclick: ctrl.category.bind(null, name)
+          className: classnames({ active: category() === name }),
+          onclick: category.bind(null, name)
         }, name)
       )
     ]),
 
-    m('.cards.row', ctrl.cards().slice(0, total).map((card, key) =>
-      m(Card, { card, events, key })
+    m('.cards.row', take(total, select(cards)).map((card, key) =>
+      m(Card, { card, fullscreen, key })
     )),
 
-    total < ctrl.cards().length
-      ? m('button.more', { onclick: ctrl.more }, 'Show more')
+    total < select(cards).length
+      ? m('button.more', { onclick: pages.bind(null, pages() + 1) }, 'Show more')
       : null,
 
-    m(Fullscreen, { events })
-  ];
-};
-
-function pageSize() {
-  var width = document.body.clientWidth;
-  return sizes.find(config => config.width <= width).size;
+    m(Fullscreen, { fullscreen })
+  ]
 }

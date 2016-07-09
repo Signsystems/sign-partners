@@ -1,24 +1,9 @@
 extends ./shared/layout.pug
 
+block head
+  - script = process.env.NODE_ENV === 'production' ? 'app-min.js' : 'app.js'
+  script(type='text/javascript' src=`/assets/${script}` defer)
+
 block content
   +header('signs')
-
   .signs
-    nav.categories.row
-      .category.active All
-      each name in signs.categories
-        .category= name
-
-    .cards.row
-      each card in signs.cards.slice(0, 12)
-        .card(style=`background-image: url(${card.image});`)
-          .aspect
-          .details
-            h2.name= card.name
-            .description= card.description
-          i.fa.zoom
-
-    button.more Show more
-
-    .fullscreen
-      .image(style=`background-image: url(${home.hero});`)

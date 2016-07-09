@@ -20,6 +20,19 @@
       "residential",
       "real-estate"
     ],
+    "sizes": [{
+      "width": 1201,
+      "size": 16
+    }, {
+      "width": 769,
+      "size": 12
+    }, {
+      "width": 481,
+      "size": 8,
+    }, {
+      "width": 0,
+      "size": 6
+    }],
     "cards": [{
       "name": "XYZ Widgets",
       "category": "residential",
