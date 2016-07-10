@@ -10,7 +10,7 @@ const Card = require('./card')
 const Fullscreen = require('./fullscreen')
 const { cards, categories, sizes } = require('../data').signs
 
-var categorize = compose(filter, propEq('category'))
+const categorize = compose(filter, propEq('category'))
 
 function size(width) {
   return sizes.find(config => config.width <= width).size
@@ -44,9 +44,10 @@ exports.view = function(vnode) {
       m(Card, { card, fullscreen, key })
     )),
 
-    total < select(cards).length
-      ? m('button.more', { onclick: pages.bind(null, pages() + 1) }, 'Show more')
-      : null,
+    m('button.more', {
+      className: classnames({ hide: total >= select(cards).length }),
+      onclick: pages.bind(null, pages() + 1) },
+    'Show more'),
 
     m(Fullscreen, { fullscreen })
   ]

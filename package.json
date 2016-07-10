@@ -6,17 +6,20 @@
   "license": "UNLICENSED",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:scripts && npm run build:styles && npm run build:templates",
+    "build": "run-p build:*",
     "build:scripts": "browserify scripts/app.js > dist/assets/app.js",
     "build:styles": "lessc styles/app.less | postcss -u autoprefixer | cleancss --s0 > dist/assets/app.css",
     "build:templates": "NODE_ENV=production pug -O data.json -o dist templates/*.pug",
-    "clean": "rm -rf dist/*",
+    "clean": "rm -rf dist/* && mkdir -p dist/assets",
+    "hint": "jshint --reporter=node_modules/jshint-stylish scripts",
     "postbuild": "ccjs dist/assets/app.js --warning_level=QUIET > dist/assets/app-min.js",
-    "prebuild": "npm run clean && mkdir -p dist/assets",
-    "prewatch": "npm run clean && mkdir -p dist/assets",
+    "prebuild": "run-s hint clean",
+    "prewatch": "npm run clean",
+    "prewatch:hint": "jshint --reporter=node_modules/jshint-stylish scripts; exit 0",
     "prewatch:styles": "npm run build:styles",
     "serve": "browser-sync start -s dist -f dist --port 4000 --no-open --no-notify --extensions *.html",
-    "watch": "parallelshell 'npm run watch:scripts' 'npm run watch:styles' 'npm run watch:templates'",
+    "watch": "run-p watch:*",
+    "watch:hint": "eye --*glob=scripts/**/*.js npm run prewatch:hint",
     "watch:scripts": "watchify scripts/app.js -d -v -o dist/assets/app.js",
     "watch:styles": "eye --*glob=styles/**/*.less npm run build:styles",
     "watch:templates": "pug -O ./data.json -o dist -w templates/*.pug"
@@ -39,7 +42,9 @@
   "devDependencies": {
     "browser-sync": "^2.13.0",
     "eye": "0.0.3",
-    "parallelshell": "^2.0.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "npm-run-all": "^2.3.0",
     "watchify": "^3.7.0"
   }
 }
