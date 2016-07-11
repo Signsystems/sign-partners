@@ -44,10 +44,9 @@ exports.view = function(vnode) {
       m(Card, { card, fullscreen, key })
     )),
 
-    m('button.more', {
-      className: classnames({ hide: total >= select(cards).length }),
-      onclick: pages.bind(null, pages() + 1) },
-    'Show more'),
+    total < select(cards).length
+      ? m('button.more', { onclick: pages.bind(null, pages() + 1) }, 'Show more')
+      : null,
 
     m(Fullscreen, { fullscreen })
   ]
