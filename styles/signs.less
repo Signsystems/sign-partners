@@ -30,6 +30,7 @@
   }
 
   .card {
+    .transition();
     background: @gray-90;
     background-position: center;
     background-repeat: no-repeat;
@@ -72,6 +73,8 @@
     }
 
     &:hover {
+      transform: scale(1.03);
+
       .aspect  { opacity: 0.7 }
       .details { opacity: 1.0 }
       .zoom    { opacity: 1.0 }
