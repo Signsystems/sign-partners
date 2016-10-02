@@ -1,8 +1,9 @@
-const m = require('mithril')
+const p = require('puddles')
 
-const Signs = require('./signs')
+const reducers = require('./ducks')
+const Signs    = require('./views/signs')
+
+const reducer = p.combine(reducers)
 
 const root = document.body.querySelector('.signs')
-
-m.mount(root, Signs)
-window.addEventListener('resize', m.redraw)
+p.mount(root, Signs, reducer)
