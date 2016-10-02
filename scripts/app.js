@@ -1,9 +1,9 @@
 const p = require('puddles')
 
-const reducers = require('./ducks')
-const Signs    = require('./views/signs')
-
-const reducer = p.combine(reducers)
+const reducer = require('./ducks/signs')
+const view    = require('./views/signs')
 
 const root = document.body.querySelector('.signs')
-p.mount(root, Signs, reducer)
+const { dispatch, state } = p.mount(root, view, reducer)
+
+dispatch.map(console.log.bind(console))

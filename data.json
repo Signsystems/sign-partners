@@ -13,13 +13,6 @@
   },
   "script": "app.js",
   "signs": {
-    "categories": [
-      "all",
-      "commercial",
-      "medical",
-      "residential",
-      "real-estate"
-    ],
     "sizes": [{
       "width": 1201,
       "size": 16
