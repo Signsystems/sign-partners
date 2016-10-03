@@ -11,6 +11,7 @@ const { cards, sizes } = require('../../data').signs
 
 const ns = concat('sp/signs/')
 
+const RESIZE       = ns('RESIZE')
 const SELECT_CARD  = ns('SELECT_CARD')
 const SET_CATEGORY = ns('SET_CATEGORY')
 const SHOW_MORE    = ns('SHOW_MORE')
@@ -22,16 +23,21 @@ const init = {
   category: 'all',
   fullscreen: false,
   pages: 1,
-  sizes
+  pageSize: 8
 }
 
+const size = width =>
+  sizes.find(config => config.width <= width).size
+
 const reducer = p.handle(init, {
+  [ RESIZE       ]: (state, width) => assoc('pageSize', size(width), state),
   [ SELECT_CARD  ]: flip(assoc('active')),
   [ SET_CATEGORY ]: flip(assoc('category')),
   [ SHOW_MORE    ]: over(lensProp('pages'), inc),
   [ ZOOM         ]: flip(assoc('fullscreen'))
 })
 
+reducer.resize      = p.action(RESIZE)
 reducer.selectCard  = p.action(SELECT_CARD)
 reducer.setCategory = p.action(SET_CATEGORY)
 reducer.showMore    = K(p.action(SHOW_MORE, null))

@@ -7,6 +7,7 @@ const pluck   = require('ramda/src/pluck')
 const propEq  = require('ramda/src/propEq')
 const sortBy  = require('ramda/src/sortBy')
 const T       = require('ramda/src/T')
+const take    = require('ramda/src/take')
 const uniq    = require('ramda/src/uniq')
 
 const Card = require('./card')
@@ -17,11 +18,13 @@ const byCategory = name =>
 
 const categories = compose(sortBy(I), append('all'), uniq, pluck('category'))
 
-const size = (sizes, width) =>
-  sizes.find(config => config.width <= width).size
+module.exports = state => {
+  const { active, cards, category, fullscreen, pages, pageSize } = state,
+        total = pages * pageSize
 
-module.exports = ({ active, cards, category, fullscreen, pages }) =>
-  p('div.signs', [
+  const select = filter(byCategory(category))
+
+  return p('div.signs', [
     p('nav.categories.row', categories(cards).map(name =>
       p('div.category', {
         class: { active: category === name },
@@ -29,7 +32,7 @@ module.exports = ({ active, cards, category, fullscreen, pages }) =>
       }, name)
     )),
 
-    p('div.cards.row', filter(byCategory(category), cards).map(Card)),
+    p('div.cards.row', take(total, select(cards)).map(Card)),
 
     p('div.fullscreen', [
       p('div.image', {
@@ -39,3 +42,4 @@ module.exports = ({ active, cards, category, fullscreen, pages }) =>
       })
     ])
   ])
+}
