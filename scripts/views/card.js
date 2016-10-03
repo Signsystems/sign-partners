@@ -1,11 +1,11 @@
 const K = require('ramda/src/always')
 const p = require('puddles')
 
-const { select, show } = require('../ducks/signs')
+const { selectCard, zoom } = require('../ducks/signs')
 
 module.exports = card =>
   p('div.card', {
-    on: { click: K(p.batch([ select(card), show() ])) },
+    on: { click: K(p.batch([ selectCard(card), zoom(true) ])) },
     style: { backgroundImage: `url(${card.image})` }
   }, [
     p('div.aspect'),

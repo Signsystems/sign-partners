@@ -11,10 +11,10 @@ const { cards, sizes } = require('../../data').signs
 
 const ns = concat('sp/signs/')
 
-const FILTER = ns('FILTER')
-const MORE   = ns('MORE')
-const SELECT = ns('SELECT')
-const SHOW   = ns('SHOW')
+const SELECT_CARD  = ns('SELECT_CARD')
+const SET_CATEGORY = ns('SET_CATEGORY')
+const SHOW_MORE    = ns('SHOW_MORE')
+const ZOOM         = ns('ZOOM')
 
 const init = {
   active: cards[0],
@@ -26,16 +26,15 @@ const init = {
 }
 
 const reducer = p.handle(init, {
-  [ FILTER ]: flip(assoc('category')),
-  [ MORE   ]: over(lensProp('pages'), inc),
-  [ SELECT ]: flip(assoc('active')),
-  [ SHOW   ]: flip(assoc('fullscreen'))
+  [ SELECT_CARD  ]: flip(assoc('active')),
+  [ SET_CATEGORY ]: flip(assoc('category')),
+  [ SHOW_MORE    ]: over(lensProp('pages'), inc),
+  [ ZOOM         ]: flip(assoc('fullscreen'))
 })
 
-reducer.filter = p.action(FILTER)
-reducer.hide   = K(p.action(SHOW, false))
-reducer.more   = K(p.action(MORE, null))
-reducer.select = p.action(SELECT)
-reducer.show   = K(p.action(SHOW, true))
+reducer.selectCard  = p.action(SELECT_CARD)
+reducer.setCategory = p.action(SET_CATEGORY)
+reducer.showMore    = K(p.action(SHOW_MORE, null))
+reducer.zoom        = p.action(ZOOM)
 
 module.exports = reducer
