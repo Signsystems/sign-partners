@@ -5,6 +5,7 @@ const { selectCard, zoom } = require('../ducks/signs')
 
 module.exports = card =>
   p('div.card', {
+    key: card.image,
     on: { click: K(p.batch([ selectCard(card), zoom(true) ])) },
     style: { backgroundImage: `url(${card.image})` }
   }, [

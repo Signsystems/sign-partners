@@ -1,7 +1,6 @@
 const assoc    = require('ramda/src/assoc')
 const concat   = require('ramda/src/concat')
 const flip     = require('ramda/src/flip')
-const K        = require('ramda/src/always')
 const inc      = require('ramda/src/inc')
 const lensProp = require('ramda/src/lensProp')
 const over     = require('ramda/src/over')
@@ -23,7 +22,7 @@ const init = {
   category: 'all',
   fullscreen: false,
   pages: 1,
-  pageSize: 8
+  pageSize: 0
 }
 
 const size = width =>
@@ -40,7 +39,7 @@ const reducer = p.handle(init, {
 reducer.resize      = p.action(RESIZE)
 reducer.selectCard  = p.action(SELECT_CARD)
 reducer.setCategory = p.action(SET_CATEGORY)
-reducer.showMore    = K(p.action(SHOW_MORE, null))
+reducer.showMore    = p.action(SHOW_MORE)
 reducer.zoom        = p.action(ZOOM)
 
 module.exports = reducer

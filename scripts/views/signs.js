@@ -11,7 +11,7 @@ const take    = require('ramda/src/take')
 const uniq    = require('ramda/src/uniq')
 
 const Card = require('./card')
-const { setCategory, zoom } = require('../ducks/signs')
+const { setCategory, showMore, zoom } = require('../ducks/signs')
 
 const byCategory = name =>
   name === 'all' ? T : propEq('category', name)
@@ -33,6 +33,10 @@ module.exports = state => {
     )),
 
     p('div.cards.row', take(total, select(cards)).map(Card)),
+
+    total < select(cards).length
+      ? p('button.more', { on: { click: showMore } }, 'Show more')
+      : '',
 
     p('div.fullscreen', [
       p('div.image', {
