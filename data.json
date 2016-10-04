@@ -13,18 +13,18 @@
   },
   "script": "app.js",
   "signs": {
-    "sizes": [{
-      "width": 1201,
-      "size": 16
+    "pages": [{
+      "size": 16,
+      "width": 1201
     }, {
-      "width": 769,
-      "size": 12
+      "size": 12,
+      "width": 769
     }, {
-      "width": 481,
       "size": 8,
+      "width": 481
     }, {
-      "width": 0,
-      "size": 6
+      "size": 6,
+      "width": 0
     }],
     "cards": [{
       "name": "XYZ Widgets",

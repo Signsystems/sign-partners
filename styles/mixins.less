@@ -6,6 +6,8 @@
   top: @top;
 }
 
-.transition(@property: all; @duration: 0.25s; @easing: ease-out) {
-  transition: @property @duration @easing;
+.transition(@property: all; @duration: 0.2s; @easing: linear) {
+  transition-property: @property;
+  transition-duration: @duration;
+  transition-timing-function: @easing;
 }

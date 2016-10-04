@@ -24,8 +24,10 @@
     "watch:styles": "eye --*glob=styles/**/*.less npm run build:styles",
     "watch:templates": "pug -O ./data.json -o dist -w templates/*.pug"
   },
+  "browserify": { "transform": [ "brfs" ] },
   "dependencies": {
     "autoprefixer": "^6.3.6",
+    "brfs": "^1.4.3",
     "browserify": "^13.0.1",
     "clean-css": "^3.4.17",
     "closurecompiler": "^1.5.3",

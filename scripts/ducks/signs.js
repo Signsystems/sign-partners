@@ -2,11 +2,13 @@ const assoc    = require('ramda/src/assoc')
 const concat   = require('ramda/src/concat')
 const flip     = require('ramda/src/flip')
 const inc      = require('ramda/src/inc')
+const last     = require('ramda/src/last')
 const lensProp = require('ramda/src/lensProp')
 const over     = require('ramda/src/over')
 const p        = require('puddles')
 
-const { cards, sizes } = require('../../data').signs
+const { cards, pages } = require('../../data').signs
+const IO = require('../lib/io')
 
 const ns = concat('sp/signs/')
 
@@ -21,22 +23,22 @@ const init = {
   cards,
   category: 'all',
   fullscreen: false,
-  pages: 1,
-  pageSize: 0
+  page: last(pages),
+  pages: 1
 }
 
-const size = width =>
-  sizes.find(config => config.width <= width).size
+const page = width =>
+  pages.find(config => config.width <= width)
 
 const reducer = p.handle(init, {
-  [ RESIZE       ]: (state, width) => assoc('pageSize', size(width), state),
+  [ RESIZE       ]: (state, width) => assoc('page', page(width), state),
   [ SELECT_CARD  ]: flip(assoc('active')),
   [ SET_CATEGORY ]: flip(assoc('category')),
   [ SHOW_MORE    ]: over(lensProp('pages'), inc),
   [ ZOOM         ]: flip(assoc('fullscreen'))
 })
 
-reducer.resize      = p.action(RESIZE)
+reducer.resize      = elm => p.action(RESIZE, IO(_ => elm.clientWidth))
 reducer.selectCard  = p.action(SELECT_CARD)
 reducer.setCategory = p.action(SET_CATEGORY)
 reducer.showMore    = p.action(SHOW_MORE)

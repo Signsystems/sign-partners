@@ -10,7 +10,9 @@ const T       = require('ramda/src/T')
 const take    = require('ramda/src/take')
 const uniq    = require('ramda/src/uniq')
 
-const Card = require('./card')
+const Card      = require('./card')
+const Footer    = require('./footer')
+const { paged } = require('../lib/animations')
 const { setCategory, showMore, zoom } = require('../ducks/signs')
 
 const byCategory = name =>
@@ -19,10 +21,11 @@ const byCategory = name =>
 const categories = compose(sortBy(I), append('all'), uniq, pluck('category'))
 
 module.exports = state => {
-  const { active, cards, category, fullscreen, pages, pageSize } = state,
-        total = pages * pageSize
+  const { active, cards, category, fullscreen, page, pages } = state,
+        total = pages * page.size
 
-  const select = filter(byCategory(category))
+  const select = filter(byCategory(category)),
+        limit  = compose(take(total), select)
 
   return p('div.signs', [
     p('nav.categories.row', categories(cards).map(name =>
@@ -32,11 +35,18 @@ module.exports = state => {
       }, name)
     )),
 
-    p('div.cards.row', take(total, select(cards)).map(Card)),
+    p('div.content', [
+      p('div.page', { key: category, style: paged }, [
+        p('div.cards.row', limit(cards).map(Card)),
 
-    total < select(cards).length
-      ? p('button.more', { on: { click: showMore } }, 'Show more')
-      : '',
+        p('button.more', {
+          class: { hidden: total >= select(cards).length },
+          on: { click: showMore }
+        }, 'Show more'),
+
+        Footer()
+      ])
+    ]),
 
     p('div.fullscreen', [
       p('div.image', {

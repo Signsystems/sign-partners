@@ -107,6 +107,10 @@
     }
   }
 
+  .content {
+    position: relative;
+  }
+
   .description {
     font-size: 1.4rem;
     font-weight: 300;
@@ -123,7 +127,7 @@
   }
 
   .more {
-    .transition();
+    .transition(background, color;);
     background: white;
     border: 0.2rem solid @blue;
     border-radius: @padding;
@@ -131,6 +135,7 @@
     cursor: pointer;
     display: block;
     margin: 0 auto @padding;
+    opacity: 1;
     outline: none;
     padding: @padding/4 @padding/2;
 
@@ -138,12 +143,22 @@
       background: @blue;
       color: @faded-white;
     }
+
+    &.hidden {
+      display: none;
+    }
   }
 
   .name {
     font-size: 2.4rem;
     font-weight: 400;
     margin-top: -2.4rem;
+  }
+
+  .page {
+    .position(absolute; 0; 0; auto; 0);
+    .transition(opacity; .4s);
+    opacity: 0;
   }
 
   .zoom {
