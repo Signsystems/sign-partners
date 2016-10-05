@@ -48,10 +48,12 @@ module.exports = state => {
       ])
     ]),
 
-    p('div.fullscreen', [
+    p('div.fullscreen', {
+      class: { show: fullscreen } ,
+      on: { click: [ zoom, false ] }
+    }, [
+      p('i.fa.zoom.out'),
       p('div.image', {
-        class: { show: fullscreen },
-        on: { click: [ zoom, false ] },
         style: { backgroundImage: `url(${active.image})` }
       })
     ])

@@ -13,7 +13,7 @@
     "clean": "rm -rf dist/* && mkdir -p dist/assets",
     "hint": "jshint --reporter=node_modules/jshint-stylish scripts",
     "postbuild": "ccjs dist/assets/app.js --warning_level=QUIET > dist/assets/app-min.js",
-    "prebuild": "run-s hint clean",
+    "prebuild": "npm run clean",
     "prewatch": "npm run clean",
     "prewatch:hint": "jshint --reporter=node_modules/jshint-stylish scripts; exit 0",
     "prewatch:styles": "npm run build:styles",

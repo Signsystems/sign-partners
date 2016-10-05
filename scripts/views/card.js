@@ -14,5 +14,5 @@ module.exports = card =>
       p('h2.name', card.name),
       p('div.description', card.description)
     ]),
-    p('i.fa.zoom')
+    p('i.fa.zoom.in')
   ])
