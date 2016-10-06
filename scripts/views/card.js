@@ -7,7 +7,7 @@ module.exports = card =>
   p('div.card', {
     key: card.image,
     on: { click: K(p.batch([ selectCard(card), zoom(true) ])) },
-    style: { backgroundImage: `url(${card.image})` }
+    style: { backgroundImage: `url(${card.image})`, delayed: { opacity: 1 } }
   }, [
     p('div.aspect'),
     p('div.details', [

@@ -7,7 +7,6 @@
   }
 
   .card {
-    .transition(transform);
     background: @gray-90;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +14,9 @@
     color: @faded-white;
     cursor: pointer;
     margin-bottom: @padding;
+    opacity: 0;
     position: relative;
+    transition: opacity .4s linear, transform .2s linear;
 
     @media (min-width: @xl-min) {
       margin-right: 2%;
