@@ -9,8 +9,9 @@ const { resize } = require('./ducks/signs')
 const reducer = p.combine(assoc('route', p.route.reducer, reducers))
 
 const view = p.route('/home', {
-  '/home':  require('./views/home'),
-  '/signs': require('./views/signs')
+  '/about':  require('./views/about'),
+  '/home':   require('./views/home'),
+  '/signs':  require('./views/signs')
 })
 
 const root = document.body.querySelector('#root')
