@@ -12,6 +12,7 @@ const uniq    = require('ramda/src/uniq')
 
 const Card      = require('./card')
 const Footer    = require('./footer')
+const Layout    = require('./layout')
 const { paged } = require('../lib/animations')
 const { setCategory, showMore, zoom } = require('../ducks/signs')
 
@@ -20,8 +21,8 @@ const byCategory = name =>
 
 const categories = compose(sortBy(I), append('all'), uniq, pluck('category'))
 
-module.exports = state => {
-  const { active, cards, category, fullscreen, page, pages } = state,
+const Signs = ({ signs }) => {
+  const { active, cards, category, fullscreen, page, pages } = signs,
         total = pages * page.size
 
   const select = filter(byCategory(category)),
@@ -59,3 +60,5 @@ module.exports = state => {
     ])
   ])
 }
+
+module.exports = Layout(Signs)

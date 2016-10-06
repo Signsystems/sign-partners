@@ -1,7 +1,11 @@
-const fs = require('fs')
-const p  = require('puddles')
+const p = require('puddles')
 
-const logo = fs.readFileSync(require.resolve('../../templates/shared/logo.svg'), 'utf8')
+const Brand = require('./brand')
+
+const Link = (path, name) =>
+  p('li.nav-item', [
+    p('a', { attrs: { href: p.href(path) } }, name)
+  ])
 
 module.exports = _ =>
   p('nav.footer.row', [
@@ -26,33 +30,15 @@ module.exports = _ =>
     p('div.column.stretch', [
       p('h3.label', 'Navigation'),
       p('ul.nav', [
-        p('li.nav-item', [
-          p('a', { attrs: { href: '/' } }, 'Home')
-        ]),
-        p('li.nav-item', [
-          p('a', { attrs: { href: '/about.html' } }, 'About')
-        ]),
-        p('li.nav-item', [
-          p('a', { attrs: { href: '/signs.html' } }, 'Signs')
-        ]),
-        p('li.nav-item', [
-          p('a', { attrs: { href: '/services.html' } }, 'Services')
-        ]),
-        p('li.nav-item', [
-          p('a', { attrs: { href: '/contact.html' } }, 'Contact')
-        ])
+        Link('/home',     'Home'),
+        Link('/about',    'About'),
+        Link('/signs',    'Signs'),
+        Link('/services', 'Services'),
+        Link('/contact',  'Contact')
       ])
     ]),
 
     p('div.column', [
-      p('h1.brand', [
-        p('a.row', { attrs: { href: '/' } }, [
-          p('div', { props: { innerHTML: logo } }),
-          p('div.column', [
-            p('div.sign', 'Sign'),
-            p('div.partners', 'Partners')
-          ])
-        ])
-      ])
+      Brand()
     ])
   ])

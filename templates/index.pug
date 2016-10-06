@@ -1,13 +1,14 @@
-extends ./shared/layout.pug
+doctype html
+html(lang='en')
+  head
+    title Sign Partners, Inc. - #1 Sign Company in Atlanta
+    meta(charset='utf-8')
+    meta(content='width=device-width, initial-scale=1' name='viewport')
 
-block content
-  +header('home')
+    link(href='//fonts.googleapis.com/css?family=Raleway:300,400|Open+Sans:300,400' rel='stylesheet')
+    link(rel='stylesheet' type='text/css' href='/assets/app.css')
 
-  .home
-    .carousel
-      .aspect
-      each src, i in home.carousel
-        .pane(class=`pane-${i}` style=`background-image: url(${src})`)
-
-    .copy
-      p We've been providing custom sign solutions to businesses and organizations in the Greater Atlanta area since 2001. Our experienced and talented staff creates some of the most beautiful, high-impact custom signs in the city. Each sign helps local business bring in more clients and communicate more effectively with employees and customers.
+    - script = process.env.NODE_ENV === 'production' ? 'app-min.js' : 'app.js'
+    script(type='text/javascript' src=`/assets/${script}` defer)
+  body
+    #root
