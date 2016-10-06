@@ -6,6 +6,13 @@
     "hero": "https://cloud.githubusercontent.com/assets/888052/16097295/23e15d30-331b-11e6-9465-f7fcd899155c.jpg"
   },
   "home": {
+    "carousel": [
+      "https://cloud.githubusercontent.com/assets/888052/19099829/034dd5a2-8a88-11e6-8b39-e0a41034ec73.jpg",
+      "https://cloud.githubusercontent.com/assets/888052/19099890/6e864318-8a88-11e6-847e-6332b7536d61.jpg",
+      "https://cloud.githubusercontent.com/assets/888052/19099911/a45121fc-8a88-11e6-9c4d-38b57c86218d.jpg",
+      "https://cloud.githubusercontent.com/assets/888052/19099959/e1aa93f8-8a88-11e6-8fa6-dcd9a6347b5a.jpg",
+      "https://cloud.githubusercontent.com/assets/888052/19099988/1acfbb04-8a89-11e6-8a82-f3b307983146.jpg"
+    ],
     "hero": "https://cloud.githubusercontent.com/assets/888052/16118906/1bcee8b0-33a7-11e6-8afe-37da36e71216.jpg"
   },
   "services": {

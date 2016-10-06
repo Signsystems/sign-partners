@@ -1,0 +1,66 @@
+.home {
+  .aspect {
+    padding-top: 40%;
+  }
+
+  .carousel {
+    position: relative;
+  }
+
+  .pane {
+    .position(absolute; 0; 0; 0; 0);
+    .transition(opacity);
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+  }
+
+  .pane-0 { animation: 24s pane-0 infinite }
+  .pane-1 { animation: 24s pane-1 infinite }
+  .pane-2 { animation: 24s pane-2 infinite }
+  .pane-3 { animation: 24s pane-3 infinite }
+  .pane-4 { animation: 24s pane-4 infinite }
+}
+
+@keyframes pane-0 {
+    0% { opacity: 1 }
+   15% { opacity: 1 }
+   20% { opacity: 0 }
+   95% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes pane-1 {
+    0% { opacity: 0 }
+   15% { opacity: 0 }
+   20% { opacity: 1 }
+   35% { opacity: 1 }
+   40% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@keyframes pane-2 {
+    0% { opacity: 0 }
+   35% { opacity: 0 }
+   40% { opacity: 1 }
+   55% { opacity: 1 }
+   60% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@keyframes pane-3 {
+    0% { opacity: 0 }
+   55% { opacity: 0 }
+   60% { opacity: 1 }
+   75% { opacity: 1 }
+   80% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@keyframes pane-4 {
+    0% { opacity: 0 }
+   75% { opacity: 0 }
+   80% { opacity: 1 }
+   95% { opacity: 1 }
+  100% { opacity: 0 }
+}
