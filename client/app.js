@@ -1,8 +1,8 @@
 const assoc = require('ramda/src/assoc')
 const p     = require('puddles')
 
-const { log }  = require('./lib/util')
-const reducers = require('./ducks')
+const { debug } = require('./lib/util')
+const reducers  = require('./ducks')
 
 const { resize } = require('./ducks/signs')
 
@@ -19,6 +19,6 @@ const view = p.route('/home', {
 const root = document.body.querySelector('#root')
 const { dispatch } = p.mount(root, view, reducer)
 
-dispatch.map(log)
+dispatch.map(debug)
 dispatch(resize(document.body))
 window.addEventListener('resize', _ => dispatch(resize(document.body)))

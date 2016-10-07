@@ -1,3 +1,9 @@
-const tap = require('ramda/src/tap')
+const tap  = require('ramda/src/tap')
+const when = require('ramda/src/when')
 
-exports.log = tap(console.log.bind(console))
+const enabled = _ => localStorage.debug
+
+const log = exports.log = tap(console.log.bind(console))
+
+exports.debug = when(enabled, log)
+
