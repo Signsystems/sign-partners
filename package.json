@@ -7,12 +7,11 @@
   "main": "index.js",
   "scripts": {
     "build": "run-p build:*",
-    "build:scripts": "browserify client/app.js > dist/assets/app.js",
-    "build:styles": "lessc client/app.less | postcss -u autoprefixer | cleancss --s0 > dist/assets/app.css",
-    "build:templates": "NODE_ENV=production pug -O data.json -o dist client/*.pug",
-    "clean": "rm -rf dist/* && mkdir -p dist/assets",
+    "build:scripts": "browserify client/app.js | buble | uglifyjs -c -m > dist/app.js",
+    "build:styles": "lessc client/app.less | postcss -u autoprefixer | cleancss --s0 > dist/app.css",
+    "build:templates": "pug -o dist client/*.pug",
+    "clean": "rm -rf dist/* && mkdir -p dist",
     "hint": "jshint --reporter=node_modules/jshint-stylish client",
-    "postbuild": "ccjs dist/assets/app.js --warning_level=QUIET > dist/assets/app-min.js",
     "prebuild": "npm run clean",
     "prewatch": "npm run clean",
     "prewatch:hint": "jshint --reporter=node_modules/jshint-stylish client; exit 0",
@@ -20,17 +19,21 @@
     "serve": "browser-sync start -s dist -f dist --port 4000 --no-open --no-notify --extensions *.html",
     "watch": "run-p watch:*",
     "watch:hint": "eye --*glob=client/**/*.js npm run prewatch:hint",
-    "watch:scripts": "watchify client/app.js -d -v -o dist/assets/app.js",
+    "watch:scripts": "watchify client/app.js -d -v -o 'exorcist dist/app.js.map > dist/app.js'",
     "watch:styles": "eye --*glob=client/**/*.less npm run build:styles",
-    "watch:templates": "pug -O ./data.json -o dist -w client/*.pug"
+    "watch:templates": "pug -o dist -w client/*.pug"
   },
-  "browserify": { "transform": [ "brfs" ] },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "brfs": "^1.4.3",
     "browserify": "^13.0.1",
+    "buble": "^0.14.0",
     "clean-css": "^3.4.17",
-    "closurecompiler": "^1.5.3",
     "eventemitter3": "^1.2.0",
     "font-awesome": "^4.6.3",
     "less": "^2.7.1",
@@ -38,10 +41,12 @@
     "postcss-cli": "^2.5.2",
     "puddles": "^0.1.5",
     "pug-cli": "^1.0.0-alpha6",
-    "ramda": "^0.21.0"
+    "ramda": "^0.21.0",
+    "uglify-js": "^2.7.3"
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
+    "exorcist": "^0.4.0",
     "eye": "0.0.3",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
