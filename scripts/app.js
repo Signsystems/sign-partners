@@ -10,6 +10,7 @@ const reducer = p.combine(assoc('route', p.route.reducer, reducers))
 
 const view = p.route('/home', {
   '/about':    require('./views/about'),
+  '/contact':  require('./views/contact'),
   '/home':     require('./views/home'),
   '/services': require('./views/services'),
   '/signs':    require('./views/signs')
