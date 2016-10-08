@@ -3,7 +3,7 @@ const p = require('puddles')
 const Brand = require('./brand')
 
 const Link = (route, path, name) =>
-  p('a.page', {
+  p('a.link', {
     attrs: { href: p.href(path) },
     class: { active: route.path === path }
   }, name)

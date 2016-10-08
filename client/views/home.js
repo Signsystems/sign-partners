@@ -3,6 +3,7 @@ const prepend = require('ramda/src/prepend')
 
 const Footer = require('./footer')
 const Layout = require('./layout')
+const { paged } = require('../lib/animations')
 
 const Pane = (src, i) =>
   p(`div.pane.pane-${i}`, {
@@ -10,7 +11,7 @@ const Pane = (src, i) =>
   })
 
 const Home = ({ home }) =>
-  p('div.home', [
+  p('div.home.page', { style: paged }, [
     p('div.carousel', prepend(
       p('div.aspect'),
       home.carousel.map(Pane)

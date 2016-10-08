@@ -3,9 +3,10 @@ const p = require('puddles')
 const Footer = require('./footer')
 const Hero   = require('./hero')
 const Layout = require('./layout')
+const { paged } = require('../lib/animations')
 
 const About = ({ about }) =>
-  p('div.about', [
+  p('div.about.page', { style: paged }, [
     Hero('About us', about.hero),
 
     p('div.copy', [

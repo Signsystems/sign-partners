@@ -5,5 +5,7 @@ const Header = require('./header')
 module.exports = Child => state =>
   p('div.layout', [
     Header(state),
-    Child(state)
+    p('div.content', [
+      Child(state)
+    ])
   ])

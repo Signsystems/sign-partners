@@ -28,7 +28,7 @@ const Signs = ({ signs }) => {
   const select = filter(byCategory(category)),
         limit  = compose(take(total), select)
 
-  return p('div.signs', [
+  return p('div.signs.page', { style: paged }, [
     p('nav.categories.row', categories(cards).map(name =>
       p('div.category', {
         class: { active: category === name },
