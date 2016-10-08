@@ -7,21 +7,21 @@
   "main": "index.js",
   "scripts": {
     "build": "run-p build:*",
-    "build:scripts": "browserify client/app.js | buble | uglifyjs -c -m > dist/app.js",
-    "build:styles": "lessc client/app.less | postcss -u autoprefixer | cleancss --s0 > dist/app.css",
-    "build:templates": "pug -o dist client/*.pug",
-    "clean": "rm -rf dist/* && mkdir -p dist",
+    "build:scripts": "browserify client/app.js | buble | uglifyjs -c -m > docs/app.js",
+    "build:styles": "lessc client/app.less | postcss -u autoprefixer | cleancss --s0 > docs/app.css",
+    "build:templates": "pug -o docs client/*.pug",
+    "clean": "rm -rf docs/* && mkdir -p docs",
     "hint": "jshint --reporter=node_modules/jshint-stylish client",
     "prebuild": "npm run clean",
     "prewatch": "npm run clean",
     "prewatch:hint": "jshint --reporter=node_modules/jshint-stylish client; exit 0",
     "prewatch:styles": "npm run build:styles",
-    "serve": "browser-sync start -s dist -f dist --port 4000 --no-open --no-notify --extensions *.html",
+    "serve": "browser-sync start -s docs -f docs --port 4000 --no-open --no-notify --extensions *.html",
     "watch": "run-p watch:*",
     "watch:hint": "eye --*glob=client/**/*.js npm run prewatch:hint",
-    "watch:scripts": "watchify client/app.js -d -v -o 'exorcist dist/app.js.map > dist/app.js'",
+    "watch:scripts": "watchify client/app.js -d -v -o 'exorcist docs/app.js.map > docs/app.js'",
     "watch:styles": "eye --*glob=client/**/*.less npm run build:styles",
-    "watch:templates": "pug -o dist -w client/*.pug"
+    "watch:templates": "pug -o docs -w client/*.pug"
   },
   "browserify": {
     "transform": [
