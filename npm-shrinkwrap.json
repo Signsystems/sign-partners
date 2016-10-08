@@ -2785,9 +2785,9 @@
       "resolved": "https://registry.npmjs.org/public-encrypt/-/public-encrypt-4.0.0.tgz"
     },
     "puddles": {
-      "version": "0.1.5",
+      "version": "0.1.6",
       "from": "puddles@latest",
-      "resolved": "https://registry.npmjs.org/puddles/-/puddles-0.1.5.tgz",
+      "resolved": "https://registry.npmjs.org/puddles/-/puddles-0.1.6.tgz",
       "dependencies": {
         "ramda": {
           "version": "0.22.1",

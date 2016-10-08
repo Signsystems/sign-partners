@@ -27,6 +27,29 @@
     }
   }
 
+  .more {
+    .transition(background, color;);
+    background: white;
+    border: 0.2rem solid @blue;
+    border-radius: @padding;
+    color: @blue;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    padding: @padding/4 @padding/2;
+    text-decoration: none;
+
+    &:active {
+      background: @blue;
+      color: @faded-white;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
   .pane {
     .position(absolute; 0; 0; 0; 0);
     .transition(opacity);

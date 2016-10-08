@@ -21,7 +21,11 @@ const Home = ({ home }) =>
     p('div.copy', [
       p('p', "We've been providing custom sign solutions to businesses and organizations in the Greater Atlanta area since 2001. Our experienced and talented staff creates some of the most beautiful, high-impact custom signs in the city. Each sign helps local business bring in more clients and communicate more effectively with employees and customers."),
 
-      p('div.cards.row', home.cards.map(Card))
+      p('div.cards.row', home.cards.map(Card)),
+
+      p('div.row', [
+        p('a.more', { attrs: { href: p.href('/signs') } }, 'See more signs')
+      ])
     ]),
 
     Footer()

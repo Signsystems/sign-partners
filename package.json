@@ -39,7 +39,7 @@
     "less": "^2.7.1",
     "normalize.css": "^4.1.1",
     "postcss-cli": "^2.5.2",
-    "puddles": "^0.1.5",
+    "puddles": "^0.1.6",
     "pug-cli": "^1.0.0-alpha6",
     "ramda": "^0.21.0",
     "uglify-js": "^2.7.3"
