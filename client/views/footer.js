@@ -31,9 +31,9 @@ module.exports = _ =>
       p('h3.label', 'Navigation'),
       p('ul.nav', [
         Link('/home',     'Home'),
-        Link('/about',    'About'),
         Link('/signs',    'Signs'),
         Link('/services', 'Services'),
+        Link('/about',    'About'),
         Link('/contact',  'Contact')
       ])
     ]),

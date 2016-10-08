@@ -12,8 +12,8 @@ module.exports = ({ route }) =>
   p('nav.header', [
     Brand(),
     Link(route, '/home',     'Home'),
-    Link(route, '/about',    'About'),
     Link(route, '/signs',    'Signs'),
     Link(route, '/services', 'Services'),
+    Link(route, '/about',    'About'),
     Link(route, '/contact',  'Contact')
   ])
