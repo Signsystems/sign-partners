@@ -1,10 +1,30 @@
 .home {
-  .aspect {
-    padding-top: 40%;
+  .card {
+    @media (min-width: @md-min) {
+      margin-right: 4%;
+      width: 48%;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: @sm-max) {
+      margin-right: 0%;
+      width: 100%;
+    }
+  }
+
+  .cards {
+    margin: @padding auto 0;
   }
 
   .carousel {
     position: relative;
+
+    .aspect {
+      padding-top: 40%;
+    }
   }
 
   .pane {

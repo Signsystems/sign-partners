@@ -14,7 +14,7 @@ const Card      = require('./card')
 const Footer    = require('./footer')
 const Layout    = require('./layout')
 const { paged } = require('../lib/animations')
-const { setCategory, showMore, zoom } = require('../ducks/signs')
+const { setCategory, showMore } = require('../ducks/signs')
 
 const byCategory = name =>
   name === 'all' ? T : propEq('category', name)
@@ -47,16 +47,6 @@ const Signs = ({ signs }) => {
 
         Footer()
       ])
-    ]),
-
-    p('div.fullscreen', {
-      class: { show: fullscreen } ,
-      on: { click: [ zoom, false ] }
-    }, [
-      p('i.fa.zoom.out'),
-      p('div.image', {
-        style: { backgroundImage: `url(${active.image})` }
-      })
     ])
   ])
 }
