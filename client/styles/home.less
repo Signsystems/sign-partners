@@ -23,7 +23,13 @@
     position: relative;
 
     .aspect {
-      padding-top: 40%;
+      @media (min-width: @md-min) {
+        padding-top: 40%;
+      }
+
+      @media (max-width: @sm-max) {
+        padding-top: 55%;
+      }
     }
   }
 

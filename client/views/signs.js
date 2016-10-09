@@ -22,7 +22,7 @@ const byCategory = name =>
 const categories = compose(sortBy(I), append('all'), uniq, pluck('category'))
 
 const Signs = ({ signs }) => {
-  const { active, cards, category, fullscreen, page, pages } = signs,
+  const { cards, category, page, pages } = signs,
         total = pages * page.size
 
   const select = filter(byCategory(category)),
