@@ -38,27 +38,6 @@
     padding: 0 @padding;
   }
 
-  .categories {
-    background: @blue;
-    color: @faded-white;
-    justify-content: center;
-    padding: 1.2rem;
-  }
-
-  .category {
-    .transition();
-    border-radius: 1.2rem;
-    cursor: pointer;
-    margin: 0.2rem 0.6rem;
-    padding: 0.3rem 1.2rem;
-    text-transform: capitalize;
-
-    &.active, &:hover {
-      background: @faded-white;
-      color: @blue;
-    }
-  }
-
   .description {
     font-size: 1.4rem;
     font-weight: 300;
@@ -85,5 +64,26 @@
     &.hidden {
       display: none;
     }
+  }
+
+  .tag {
+    .transition();
+    border-radius: 1.2rem;
+    cursor: pointer;
+    margin: 0.2rem 0.6rem;
+    padding: 0.3rem 1.2rem;
+    text-transform: capitalize;
+
+    &.active, &:hover {
+      background: @faded-white;
+      color: @blue;
+    }
+  }
+
+  .tags {
+    background: @blue;
+    color: @faded-white;
+    justify-content: center;
+    padding: 1.2rem;
   }
 }
