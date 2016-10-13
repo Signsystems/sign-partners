@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "build": "run-p build:*",
-    "build:cname": "cp client/CNAME docs/CNAME",
+    "build:copy": "cp client/CNAME client/robots.txt docs/",
     "build:scripts": "browserify client/app.js | buble | uglifyjs -c -m > docs/app.js",
     "build:styles": "lessc client/app.less | postcss -u autoprefixer | cleancss --s0 > docs/app.css",
     "build:templates": "pug -o docs client/*.pug",
@@ -19,7 +19,7 @@
     "prewatch:styles": "npm run build:styles",
     "serve": "browser-sync start -s docs -f docs --port 4000 --no-open --no-notify --extensions *.html",
     "watch": "run-p watch:*",
-    "watch:cname": "cp client/CNAME docs/CNAME",
+    "watch:copy": "npm run build:copy",
     "watch:hint": "eye --*glob=client/**/*.js npm run prewatch:hint",
     "watch:scripts": "watchify client/app.js -d -v -o 'exorcist docs/app.js.map > docs/app.js'",
     "watch:styles": "eye --*glob=client/**/*.less npm run build:styles",
