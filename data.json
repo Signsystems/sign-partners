@@ -6,35 +6,8 @@
     "hero": "https://cloud.githubusercontent.com/assets/888052/16097295/23e15d30-331b-11e6-9465-f7fcd899155c.jpg"
   },
   "home": {
-    "cards": [{
-      "name": "",
-      "tags": ["community"],
-      "description": "",
-      "image": "https://cloud.githubusercontent.com/assets/888052/16097316/3ddf17c2-331b-11e6-8996-3a2e316f3ec0.jpg"
-    }, {
-      "name": "",
-      "tags": ["medical"],
-      "description": "",
-      "image": "https://cloud.githubusercontent.com/assets/888052/16097295/23e15d30-331b-11e6-9465-f7fcd899155c.jpg"
-    }, {
-      "name": "",
-      "tags": ["community"],
-      "description": "",
-      "image": "https://cloud.githubusercontent.com/assets/888052/16118906/1bcee8b0-33a7-11e6-8afe-37da36e71216.jpg"
-    }, {
-      "name": "",
-      "tags": ["commercial"],
-      "description": "",
-      "image": "https://cloud.githubusercontent.com/assets/888052/16097269/ffc8f7aa-331a-11e6-9246-b79d45a30433.jpg"
-    }],
-    "carousel": [
-      "https://cloud.githubusercontent.com/assets/888052/19099829/034dd5a2-8a88-11e6-8b39-e0a41034ec73.jpg",
-      "https://cloud.githubusercontent.com/assets/888052/19099890/6e864318-8a88-11e6-847e-6332b7536d61.jpg",
-      "https://cloud.githubusercontent.com/assets/888052/19099911/a45121fc-8a88-11e6-9c4d-38b57c86218d.jpg",
-      "https://cloud.githubusercontent.com/assets/888052/19099959/e1aa93f8-8a88-11e6-8fa6-dcd9a6347b5a.jpg",
-      "https://cloud.githubusercontent.com/assets/888052/19099988/1acfbb04-8a89-11e6-8a82-f3b307983146.jpg"
-    ],
-    "hero": "https://cloud.githubusercontent.com/assets/888052/16118906/1bcee8b0-33a7-11e6-8afe-37da36e71216.jpg"
+    "cards": ["201", "202", "176", "095"],
+    "carousel": ["190", "165", "117", "067", "015"]
   },
   "services": {
     "hero": "https://cloud.githubusercontent.com/assets/888052/16097269/ffc8f7aa-331a-11e6-9246-b79d45a30433.jpg"

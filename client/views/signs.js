@@ -3,7 +3,6 @@ const compose  = require('ramda/src/compose')
 const contains = require('ramda/src/contains')
 const filter   = require('ramda/src/filter')
 const flatten  = require('ramda/src/flatten')
-const flip     = require('ramda/src/flip')
 const I        = require('ramda/src/identity')
 const map      = require('ramda/src/map')
 const p        = require('puddles')
@@ -16,6 +15,7 @@ const values   = require('ramda/src/values')
 const uniq     = require('ramda/src/uniq')
 
 const Card      = require('./card')
+const { get }   = require('../lib/util')
 const Footer    = require('./footer')
 const Layout    = require('./layout')
 const { paged } = require('../lib/animations')
@@ -23,8 +23,6 @@ const { setTag, showMore } = require('../ducks/signs')
 
 const byTag = name =>
   name === 'all' ? T : compose(contains(name), prop('tags'))
-
-const get = flip(prop)
 
 const tags = compose(sortBy(I), uniq, append('all'), flatten, pluck('tags'), values)
 
