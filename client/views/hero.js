@@ -1,7 +1,7 @@
 const p = require('puddles')
 
-module.exports = (title, image) =>
-  p('div.hero', { style: { backgroundImage: `url(${image})` } }, [
+module.exports = (title, hero) =>
+  p('div.hero', { style: { backgroundImage: `url(${hero.src})` } }, [
     p('div.darken'),
     p('h1.title', title)
   ])

@@ -9,7 +9,7 @@ const { paged } = require('../lib/animations')
 
 const Pane = (pane, i) =>
   p(`div.pane.pane-${i}`, {
-    style: { backgroundImage: `url(${pane.image})` }
+    style: { backgroundImage: `url(${pane.src})` }
   })
 
 const Home = ({ home, images }) =>

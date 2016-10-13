@@ -5,9 +5,9 @@ const Hero   = require('./hero')
 const Layout = require('./layout')
 const { paged } = require('../lib/animations')
 
-const Services = ({ services }) =>
+const Services = ({ images, services }) =>
   p('div.services.page', { style: paged }, [
-    Hero('Services', services.hero),
+    Hero('Services', images[services.hero]),
 
     p('div.copy', [
       p('h2.heading', 'Installation'),

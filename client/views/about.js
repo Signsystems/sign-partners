@@ -5,9 +5,9 @@ const Hero   = require('./hero')
 const Layout = require('./layout')
 const { paged } = require('../lib/animations')
 
-const About = ({ about }) =>
+const About = ({ about, images }) =>
   p('div.about.page', { style: paged }, [
-    Hero('About us', about.hero),
+    Hero('About us', images[about.hero]),
 
     p('div.copy', [
       p('p', `We've been providing custom sign solutions to businesses and organizations in the Greater Atlanta area since 2001.  Our experienced and talented staff creates some of the most beautiful, high-impact custom signs in the city. Each sign helps local business bring in more clients and communicate more effectively with employees and customers.`),

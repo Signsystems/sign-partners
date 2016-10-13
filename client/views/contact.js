@@ -5,9 +5,9 @@ const Hero   = require('./hero')
 const Layout = require('./layout')
 const { paged } = require('../lib/animations')
 
-const Contact = ({ contact }) =>
+const Contact = ({ contact, images }) =>
   p('div.contact.page', { style: paged }, [
-    Hero('Contact us', contact.hero),
+    Hero('Contact us', images[contact.hero]),
 
     p('div.other.row', [
       p('div.item', [

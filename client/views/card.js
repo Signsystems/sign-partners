@@ -5,10 +5,10 @@ const { select, zoom } = require('../ducks/fullscreen')
 
 module.exports = card =>
   p('div.card', {
-    key: card.image,
+    key: card.id,
     attrs: { title: card.id },
-    on: { click: K(p.batch([ select(card.image), zoom(true) ])) },
-    style: { backgroundImage: `url(${card.image})`, delayed: { opacity: 1 } }
+    on: { click: K(p.batch([ select(card.src), zoom(true) ])) },
+    style: { backgroundImage: `url(${card.src})`, delayed: { opacity: 1 } }
   }, [
     p('div.aspect'),
     p('div.details', [
