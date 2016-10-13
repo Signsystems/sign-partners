@@ -21,7 +21,7 @@ const { setTag, showMore } = require('../ducks/signs')
 const byTag = name =>
   name === 'all' ? T : compose(contains(name), prop('tags'))
 
-const tags = compose(sortBy(I), append('all'), uniq, flatten, pluck('tags'))
+const tags = compose(sortBy(I), uniq, append('all'), flatten, pluck('tags'))
 
 const Signs = ({ signs }) => {
   const { cards, tag, page, pages } = signs,
