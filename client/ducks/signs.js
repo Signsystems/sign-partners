@@ -32,7 +32,7 @@ const reducer = p.handle(init, {
   [ SHOW_MORE ]: over(lensProp('pages'), inc),
 })
 
-reducer.resize   = elm => p.action(RESIZE, IO(_ => elm.clientWidth))
+reducer.resize   = elm => p.action(RESIZE, IO(() => elm.clientWidth))
 reducer.setTag   = p.action(SET_TAG)
 reducer.showMore = p.action(SHOW_MORE)
 

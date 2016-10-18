@@ -13,7 +13,7 @@
     "build:templates": "pug -o docs client/*.pug",
     "clean": "rm -rf docs/* && mkdir -p docs",
     "hint": "jshint --reporter=node_modules/jshint-stylish client",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && npm run hint",
     "prewatch": "npm run clean",
     "prewatch:hint": "jshint --reporter=node_modules/jshint-stylish client; exit 0",
     "prewatch:styles": "npm run build:styles",

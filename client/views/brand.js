@@ -3,7 +3,7 @@ const p  = require('puddles')
 
 const logo = fs.readFileSync(require.resolve('./logo.svg'), 'utf8')
 
-module.exports = _ =>
+module.exports = () =>
   p('h1.brand', [
     p('a.row', { attrs: { href: p.href('/home') } }, [
       p('div', { props: { innerHTML: logo } }),

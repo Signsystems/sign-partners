@@ -7,7 +7,7 @@ const Link = (path, name) =>
     p('a', { attrs: { href: p.href(path) } }, name)
   ])
 
-module.exports = _ =>
+module.exports = () =>
   p('nav.footer.row', [
     p('div.column', [
       p('h3.label', 'Sign Partners, Inc.'),
