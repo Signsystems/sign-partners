@@ -1,14 +1,15 @@
-const p = require('puddles')
+const once = require('ramda/src/once')
+const p    = require('puddles')
 
-const { zoom } = require('../ducks/fullscreen')
+const { faded } = require('../lib/animations')
 
-module.exports = ({ fullscreen: { image, show} }) =>
+module.exports = ({ images, route: { params: { id } } }) =>
   p('div.fullscreen', {
-    class: { show: show } ,
-    on: { click: [ zoom, false ] }
+    on: { click: once(history.back.bind(history)) },
+    style: faded
   }, [
     p('i.fa.zoom.out'),
     p('div.image', {
-      style: { backgroundImage: `url(${image})` }
+      style: { backgroundImage: `url(${images[id].src})` }
     })
   ])

@@ -1,13 +1,9 @@
-const K = require('ramda/src/always')
 const p = require('puddles')
 
-const { select, zoom } = require('../ducks/fullscreen')
-
-module.exports = card =>
-  p('div.card', {
+module.exports = basePath => card =>
+  p('a.card', {
     key: card.id,
-    attrs: { title: card.id },
-    on: { click: K(p.batch([ select(card.src), zoom(true) ])) },
+    attrs: { href: p.href(`${basePath}/${card.id}`), title: card.id },
     style: { backgroundImage: `url(${card.src})`, delayed: { opacity: 1 } }
   }, [
     p('div.aspect'),

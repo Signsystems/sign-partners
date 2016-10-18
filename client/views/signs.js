@@ -33,7 +33,7 @@ const Signs = ({ images, signs }) => {
   const select = compose(filter(byTag(tag)), map(get(images))),
         limit  = compose(take(total), select)
 
-  return p('div.signs.page', { style: paged }, [
+  return p('div.signs', [
     p('nav.tags.row', tags(images).map(name =>
       p('div.tag', {
         class: { active: tag === name },
@@ -43,7 +43,7 @@ const Signs = ({ images, signs }) => {
 
     p('div.content', [
       p('div.page', { key: tag, style: paged }, [
-        p('div.cards.row', limit(cards).map(Card)),
+        p('div.cards.row', limit(cards).map(Card('/signs'))),
 
         p('button.more', {
           class: { hidden: total >= select(cards).length },
