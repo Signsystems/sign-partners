@@ -2132,6 +2132,11 @@
       "from": "jshint@latest",
       "resolved": "https://registry.npmjs.org/jshint/-/jshint-2.9.2.tgz",
       "dependencies": {
+        "lodash": {
+          "version": "3.7.0",
+          "from": "lodash@>=3.7.0 <3.8.0",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.7.0.tgz"
+        },
         "minimatch": {
           "version": "2.0.10",
           "from": "minimatch@>=2.0.0 <2.1.0",
@@ -2276,9 +2281,9 @@
       }
     },
     "lodash": {
-      "version": "3.7.0",
-      "from": "lodash@>=3.7.0 <3.8.0",
-      "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.7.0.tgz"
+      "version": "4.16.4",
+      "from": "lodash@latest",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.16.4.tgz"
     },
     "lodash.assign": {
       "version": "4.0.9",
