@@ -1,5 +1,6 @@
 const assoc    = require('ramda/src/assoc')
 const concat   = require('ramda/src/concat')
+const find     = require('ramda/src/find')
 const flip     = require('ramda/src/flip')
 const inc      = require('ramda/src/inc')
 const last     = require('ramda/src/last')
@@ -24,7 +25,7 @@ const init = {
 }
 
 const page = width =>
-  pages.find(config => config.width <= width)
+  find(config => config.width <= width, pages)
 
 const reducer = p.handle(init, {
   [ RESIZE    ]: (state, width) => assoc('page', page(width), state),
