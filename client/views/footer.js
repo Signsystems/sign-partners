@@ -21,8 +21,6 @@ module.exports = () =>
 
         p('a', { attrs: { href: 'tel:770-980-0100' } }, '770-980-0100'), ' - phone',
         p('br'),
-        '770-090-0987 - fax',
-        p('br'),
         p('a', { attrs: { href: 'mailto:mail@signpartners.com' } }, 'mail@signpartners.com')
       ])
     ]),
