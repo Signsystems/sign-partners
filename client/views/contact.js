@@ -14,10 +14,6 @@ const Contact = ({ contact, images }) =>
         p('a', { attrs: { href: 'tel:770-980-0100' } }, '770-980-0100')
       ]),
       p('div.item', [
-        p('h3.label', 'Fax'),
-        '770-980-0987'
-      ]),
-      p('div.item', [
         p('h3.label', 'Email'),
         p('a', { attrs: { href: 'mailto:mail@signpartners.com' } }, 'mail@signpartners.com')
       ])
