@@ -24,9 +24,9 @@ const Contact = ({ contact, images }) =>
     ]),
 
     p('div.address', [
-      '2774 N. Cobb Parkway, Suite 109', p('br'),
-      'Box #315', p('br'),
-      'Kennesaw, GA 30152'
+      '4225 JVL Industrial Park Dr', p('br'),
+      'Suite 204', p('br'),
+      'Marietta, GA  30066'
     ]),
 
     p('iframe.map', {

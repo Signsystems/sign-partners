@@ -12,11 +12,11 @@ module.exports = () =>
     p('div.column', [
       p('h3.label', 'Sign Partners, Inc.'),
       p('div.contact-info', [
-        '2774 N. Cobb Parkway, Suite 109',
+        '4225 JVL Industrial Park Dr',
         p('br'),
-        'Box #315',
+        'Suite 204',
         p('br'),
-        'Kennesaw, GA 30152',
+        'Marietta, GA  30066',
         p('br'),
 
         p('a', { attrs: { href: 'tel:770-980-0100' } }, '770-980-0100'), ' - phone',
